@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { usePuterStore } from "~/lib/putter";
+import type { Route } from "../+types/root";
 
-export const meta = () => ([
+export const meta = ({}: Route.MetaArgs) => ([
     { title: 'Resumind | Auth' },
     { name: 'description', content: 'Log into your account'}
 ])
+
 
 function auth() {
    const {isLoading, auth} = usePuterStore();
