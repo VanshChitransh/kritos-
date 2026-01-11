@@ -114,7 +114,9 @@ function upload() {
             setStatusText("Analysis Complete, redirecting...")
             console.log("Resume ID:", data.id);
             console.log("Feedback:", data.feedback);
-            // navigate(`/result/${uuid}`);
+            console.log("Data saved to KV store:", data);
+            // console.log("KV Key:", `resume ${uuid}`);
+            navigate(`/resume/${uuid}`);
         } catch (err) {
             const message = err instanceof Error ? err.message : "Unknown error";
             stopWithError(`Error: ${message}`);
@@ -140,7 +142,7 @@ function upload() {
         <Navbar/>
         <section className="main-section">
             <div className="page-heading py-16">
-                <h1>Smart feedback for your dream Job</h1>,
+                <h1>Smart feedback for your dream Job</h1>
                 {isProcessing ? (
                     <>
                         <h2>{statusText}</h2>
